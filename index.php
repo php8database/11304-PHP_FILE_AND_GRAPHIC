@@ -12,5 +12,6 @@
 <a class="types" href="manage.php"><div>檔案管理</div></a>
 <a class="types" href="text-import.php"><div>文字檔案處理</div></a>
 <a class="types" href="image.php"><div>圖形處理</div></a>
+
 </body>
 </html>
