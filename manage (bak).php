@@ -17,16 +17,11 @@
     <title>檔案管理功能</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        table{
-            width:500px;
-            margin:20px auto;
+        .item{
+            width:200px;
         }
-        td{
-            padding:5px 10px;
-
-        }
-        td img{
-            width:120px;
+        .item img{
+            width:100%;
         }
     </style>
 </head>
@@ -39,13 +34,10 @@ include_once "function.php";
 echo "<br>";
 dd($_FILES); */
 
-if(isset($_FILES['filename'])){
-    if($_FILES['filename']['error']==0){
-        $filename=$_FILES['filename']['name'];
-        move_uploaded_file($_FILES['filename']['tmp_name'],"./files/".$filename);
-        $desc=$_POST['desc'];
+if(isset($_FILES['img'])){
+    if($_FILES['img']['error']==0){
 
-        insert("imgs",['filename'=>$filename,'desc'=>$desc]);
+        move_uploaded_file($_FILES['img']['tmp_name'],"./files/".$_FILES['img']['name']);
 
     }else{
         echo "上傳失敗，請檢查檔案格式或是大小是否符合規定";
@@ -56,17 +48,19 @@ if(isset($_FILES['filename'])){
 <!----透過檔案讀取來顯示檔案的資訊，並可對檔案執行更新或刪除的工作----->
 <?php
 
-$rows=all('imgs');
-echo "<table>";
-foreach($rows as $file){
-    echo "<tr>";
-    echo " <td><img src='files/{$file['filename']}'></td>";
-    echo " <td>{$file['desc']}</td>";
-    echo " <td><a href='del_img.php?file={$file['filename']}'>刪除</a></td>";
-    echo " <td><a href='re_upload.php?file={$file['filename']}'>重新上傳</a></td>";
-    echo "</tr>";
+$dirpath="./files";
+
+//$dir=opendir($dirpath);
+$items=scandir($dirpath);
+$items=array_diff($items,array('.','..'));
+
+foreach($items as $file){
+    echo "<div class='item'>";
+    echo "<img src='{$dirpath}/{$file}'>";
+    echo "<a href='del_img.php?file={$file}'>刪除</a>";
+    echo "<a href='re_upload.php?file={$file}'>重新上傳</a>";
+    echo "</div>";
 }
-echo "</table>";
 ?>
 
 
