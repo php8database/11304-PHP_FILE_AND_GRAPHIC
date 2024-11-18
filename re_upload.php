@@ -29,7 +29,7 @@
  <!----建立你的表單及設定編碼----->
 <form action="update_img.php" method="post" enctype="multipart/form-data">
  <input type="file" name="img" id="file">
- <input type="hidden" name="imgName" value="<?=$_GET['file'];?>">
+ <input type="hidden" name="imgName" value="<?=$_GET['id'];?>">
  <input type="text" name="name" id="name">
  <input type="submit" value="上傳">
 
