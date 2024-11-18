@@ -126,4 +126,3 @@ if(!empty($_FILES['file']['tmp_name'])){
 |imagecolorallocate()|定義一個顏色|int|
 |imagesetpixel()|畫一個點|true/false|
 |imageline()|畫一條線|true/false|
-

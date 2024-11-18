@@ -58,6 +58,7 @@ foreach($items as $file){
     echo "<div class='item'>";
     echo "<img src='{$dirpath}/{$file}'>";
     echo "<a href='del_img.php?file={$file}'>刪除</a>";
+    echo "<a href='re_upload.php?file={$file}'>重新上傳</a>";
     echo "</div>";
 }
 ?>
