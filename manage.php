@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         table{
-            width:500px;
+            width:700px;
             margin:20px auto;
         }
         td{
@@ -27,6 +27,17 @@
         }
         td img{
             width:120px;
+        }
+
+        a{
+            display: inline-block;
+            padding:5px 10px;
+            border: 1px solid #ccc;
+            margin:5px;
+            border-radius: 8px;
+        }
+        a:hover{
+            background-color:skyblue;
         }
     </style>
 </head>
@@ -45,7 +56,7 @@ if(isset($_FILES['filename'])){
         move_uploaded_file($_FILES['filename']['tmp_name'],"./files/".$filename);
         $desc=$_POST['desc'];
 
-        insert("imgs",['filename'=>$filename,'desc'=>$desc]);
+        save("imgs",['filename'=>$filename,'desc'=>$desc]);
 
     }else{
         echo "上傳失敗，請檢查檔案格式或是大小是否符合規定";
@@ -63,7 +74,12 @@ foreach($rows as $file){
     echo " <td><img src='files/{$file['filename']}'></td>";
     echo " <td>{$file['desc']}</td>";
     echo " <td><a href='del_img.php?id={$file['id']}'>刪除</a></td>";
-    echo " <td><a href='re_upload.php?id={$file['id']}'>重新上傳</a></td>";
+    echo " <td>";
+    echo "<a href='show_img.php?id={$file['id']}'>";
+    echo ($file['sh']==1)?"隱藏":"顯示";
+    echo "</a>";
+    echo "<a href='re_upload.php?id={$file['id']}'>重新上傳</a>";
+    echo "</td>";
     echo "</tr>";
 }
 echo "</table>";
