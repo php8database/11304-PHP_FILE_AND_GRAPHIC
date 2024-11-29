@@ -1,7 +1,6 @@
 <?php
 
-include_once "conf.php";
-
+define("DBNAME","file");
 
 /**
  * 建立資料庫的連線變數
@@ -10,7 +9,7 @@ include_once "conf.php";
  */
 function pdo($db){
     $dsn="mysql:host=localhost;charset=utf8;dbname=$db";
-    $pdo=new PDO($dsn,USERNAME,USERPASSWORD);
+    $pdo=new PDO($dsn,'root','');
     return $pdo;
 }
 
