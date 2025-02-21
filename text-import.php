@@ -37,7 +37,7 @@ function getfile($path){
 
         $header_cols = fgetcsv($file); // 讀取CSV檔案的標題列
 
-        // 處理BOM問題以及直接將編碼轉成 UTF-8
+        // 處理BOM問題以及直接將編碼轉成UTF-8
         $header_cols[0] = preg_replace('/^\xEF\xBB\xBF/', '', $header_cols[0]);
 
         // 清理欄位名稱
