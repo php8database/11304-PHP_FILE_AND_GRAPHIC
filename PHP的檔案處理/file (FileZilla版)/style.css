@@ -1,0 +1,72 @@
+* {
+    font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* 設定返回按鈕的位置 */
+body {
+    position: relative;
+    /* 使 .back-button 相對於 body 定位 */
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    /* 頁面頂端10px */
+    right: 10px;
+    /* 頁面右邊10px */
+    background-color: #adb5c0c0;
+    /* 背景顏色 */
+    color: white;
+    /* 文字顏色 */
+    padding: 10px 15px;
+    /* 按鈕內邊距 */
+    border-radius: 5px;
+    /* 圓角效果 */
+    font-size: 16px;
+    text-decoration: none;
+    /* 去除底線 */
+    z-index: 1000;
+    /* 確保按鈕位於其他元素上方 */
+}
+
+/* hover效果 */
+.back-button:hover {
+    background-color: #ca9d9d21;
+    /* 滑鼠懸停時變更背景顏色 */
+}
+
+.types {
+    display: block;
+    width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    height: 100px;
+    border: 1px solid #999;
+    border-radius: 50px;
+    box-shadow: 2px 2px 5px #ccc;
+}
+
+.types div {
+    width: 100%;
+    font-size: 30px;
+    line-height: 80px;
+    text-align: center;
+}
+
+.types:hover {
+    border: 2px solid blue;
+    background: lightcyan;
+}
+
+.header {
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 32px;
+}
